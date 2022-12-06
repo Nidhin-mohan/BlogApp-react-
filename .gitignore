@@ -1,8 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+/blog-app v1/node_modules
+/blog-app v2/node_modules
+.pnp
 .pnp.js
 
 # testing
