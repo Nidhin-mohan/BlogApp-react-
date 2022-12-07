@@ -1,42 +1,20 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogList from "./Bloglist";
 
+import useFetch from "./useFetch";
+
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
-    { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
-    {
-      title: "Web dev top tips",
-      body: "lorem ipsum...",
-      author: "mario",
-      id: 3,
-    },
-  ]);
-
-  const [name, setName] = useState("nidhin")
-
-  const handleDelete = (id) => {
-    const newblogs = blogs.filter(blog => blog.id !== id);
-    setBlogs(newblogs);
-  };
-
-   useEffect(() => {
-     fetch("http://localhost:8000/blogs")
-       .then((res) => {
-         return res.json();
-       })
-       .then((data) => {
-         setBlogs(data);
-       });
-   }, []);
-  
+  const {
+    error,
+    isPending,
+    data: blogs,
+  } = useFetch("https://api.npoint.io/b4ead184047c83f15b75/blogs");
 
   return (
     <div className="home">
-     <BlogList blogs={blogs} title= "All Blogs"  handleDelete={handleDelete}/>
-     <button onClick={()=> setName("Nikhil")}>change name {name}</button>
-     {/* <BlogList blogs={blogs.filter((blog) => blog.author === "mario")} title = "Marios blog"/> */}
+      {error && <div>{error}</div>}
+      {isPending && <div>Loading...</div>}
+      {blogs && <BlogList blogs={blogs} />}
     </div>
   );
 };

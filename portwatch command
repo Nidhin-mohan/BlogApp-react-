@@ -1,0 +1,9 @@
+npx json-server --watch data/.json --port 8000
+
+
+https://api.npoint.io/b4ead184047c83f15b75
+
+
+ http://localhost:8000/blogs
+
+ https://api.npoint.io/b4ead184047c83f15b75/blogs
