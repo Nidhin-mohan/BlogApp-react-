@@ -7,7 +7,7 @@ const BlogDetails = () => {
     data: blog,
     error,
     isPending,
-  } = useFetch("https://api.npoint.io/b4ead184047c83f15b75/blogs/" + id);
+  } = useFetch("http://localhost:8000/blogs/" + id);
 
   return (
     <div className="blog-details">

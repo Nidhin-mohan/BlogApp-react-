@@ -8,7 +8,7 @@ const Home = () => {
     error,
     isPending,
     data: blogs,
-  } = useFetch("https://api.npoint.io/b4ead184047c83f15b75/blogs");
+  } = useFetch("http://localhost:8000/blogs");
 
   return (
     <div className="home">
