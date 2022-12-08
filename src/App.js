@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Navbar from "./Navbar";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Create from "./Create";
 
 
 function App() {
@@ -9,11 +10,21 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="content">
-          <Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+
+            {/*
+             react router outdated stuff
             <Route path="/">
               <Home />
             </Route>
-          </Switch>
+            <Route path="/">
+              <Create />
+            </Route> */}
+          </Routes>
+
+       
         </div>
       </div>
     </Router>
